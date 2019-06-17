@@ -15,7 +15,7 @@ public class Enquiry {
     private String ddate;
     private String status;
     private String orderstatus;
-    private String customerreturns;
+
 
     @OneToMany(mappedBy = "enquiry", cascade = CascadeType.ALL)
     @JsonIgnoreProperties("enquiry")
@@ -73,15 +73,6 @@ public class Enquiry {
         this.orderstatus = orderstatus;
     }
 
-    public String getCustomerreturns() {
-        return customerreturns;
-    }
-
-    public void setCustomerreturns(String customerreturns) {
-        this.customerreturns = customerreturns;
-    }
-
-
     public Customer getCustomer() {
         return customer;
     }
@@ -96,5 +87,6 @@ public class Enquiry {
 
     public void setEnquiryProducts(Set<EnquiryProduct> enquiryProducts) {
         this.enquiryProducts = enquiryProducts;
+        this.enquiryProducts.forEach(enquiryProduct -> enquiryProduct.setEnquiry(this));
     }
 }
