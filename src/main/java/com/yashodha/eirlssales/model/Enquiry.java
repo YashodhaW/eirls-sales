@@ -1,9 +1,9 @@
 package com.yashodha.eirlssales.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Enquiry {
@@ -11,25 +11,19 @@ public class Enquiry {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int orderid;
     private int id;
-    private String customer;
     private String dmethod;
     private String ddate;
     private String status;
     private String orderstatus;
     private String customerreturns;
 
-    public Enquiry() {
-    }
+    @OneToMany(mappedBy = "enquiry", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("enquiry")
+    private Set<EnquiryProduct> enquiryProducts;
 
-    public Enquiry(int id, String customer, String dmethod, String ddate, String status, String orderstatus, String customerreturns) {
-        this.id = id;
-        this.customer = customer;
-        this.dmethod = dmethod;
-        this.ddate = ddate;
-        this.status = status;
-        this.orderstatus = orderstatus;
-        this.customerreturns = customerreturns;
-    }
+    @ManyToOne
+    @JoinColumn
+    private Customer customer;
 
     public int getOrderid() {
         return orderid;
@@ -45,14 +39,6 @@ public class Enquiry {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(String customer) {
-        this.customer = customer;
     }
 
     public String getDmethod() {
@@ -93,5 +79,22 @@ public class Enquiry {
 
     public void setCustomerreturns(String customerreturns) {
         this.customerreturns = customerreturns;
+    }
+
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Set<EnquiryProduct> getEnquiryProducts() {
+        return enquiryProducts;
+    }
+
+    public void setEnquiryProducts(Set<EnquiryProduct> enquiryProducts) {
+        this.enquiryProducts = enquiryProducts;
     }
 }

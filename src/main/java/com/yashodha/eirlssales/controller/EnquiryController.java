@@ -28,15 +28,12 @@ public class EnquiryController {
     }
 
     @PostMapping
-    public Enquiry addEnquiry(@RequestBody Enquiry enquiry){
+    public Enquiry saveEnquiry(@RequestBody Enquiry enquiry){
         return enquiryRepo.save(enquiry);
     }
 
     @PutMapping
-    public Enquiry updateEnquiry(@RequestBody Enquiry enquiry){
+    public Enquiry editEnquiry(@RequestBody Enquiry enquiry){
         return enquiryRepo.save(enquiry);
     }
-
-
-
 }
