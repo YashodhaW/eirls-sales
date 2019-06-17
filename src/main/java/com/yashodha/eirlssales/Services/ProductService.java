@@ -1,6 +1,6 @@
 package com.yashodha.eirlssales.Services;
 
-import com.yashodha.eirlssales.model.Item;
+import com.yashodha.eirlssales.model.Product;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -13,12 +13,12 @@ public class ProductService {
 
     private final String MaterialProductsUrl = "https://eirls-material.herokuapp.com/showItems";
 
-    public List<Item> getItems() {
+    public List<Product> getItems() {
 
         RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<Item[]> materialIResponse= restTemplate.getForEntity(MaterialProductsUrl, Item[].class);
-        Item[] items = materialIResponse.getBody();
-        List<Item> itemsList = Arrays.asList(items);
+        ResponseEntity<Product[]> materialIResponse= restTemplate.getForEntity(MaterialProductsUrl, Product[].class);
+        Product[] items = materialIResponse.getBody();
+        List<Product> itemsList = Arrays.asList(items);
 
         return itemsList;
     }
