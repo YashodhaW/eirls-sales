@@ -9,45 +9,50 @@ import javax.persistence.Id;
 public class Enquiry {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int eid;
-    private String itemname;
-    private boolean itemavailability;
+    private int orderid;
+    private int id;
+    private String customer;
     private String dmethod;
-    private String creditstatus;
+    private String ddate;
+    private String status;
+    private String orderstatus;
+    private String customerreturns;
 
     public Enquiry() {
     }
 
-    public Enquiry(String itemname, boolean itemavailability, String dmethod, String creditstatus) {
-        this.itemname = itemname;
-        this.itemavailability = itemavailability;
+    public Enquiry(int id, String customer, String dmethod, String ddate, String status, String orderstatus, String customerreturns) {
+        this.id = id;
+        this.customer = customer;
         this.dmethod = dmethod;
-        this.creditstatus = creditstatus;
+        this.ddate = ddate;
+        this.status = status;
+        this.orderstatus = orderstatus;
+        this.customerreturns = customerreturns;
     }
 
-
-    public int getEid() {
-        return eid;
+    public int getOrderid() {
+        return orderid;
     }
 
-    public void setEid(int eid) {
-        this.eid = eid;
+    public void setOrderid(int orderid) {
+        this.orderid = orderid;
     }
 
-    public String getItemname() {
-        return itemname;
+    public int getId() {
+        return id;
     }
 
-    public void setItemname(String itemname) {
-        this.itemname = itemname;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public boolean isItemavailability() {
-        return itemavailability;
+    public String getCustomer() {
+        return customer;
     }
 
-    public void setItemavailability(boolean itemavailability) {
-        this.itemavailability = itemavailability;
+    public void setCustomer(String customer) {
+        this.customer = customer;
     }
 
     public String getDmethod() {
@@ -58,13 +63,35 @@ public class Enquiry {
         this.dmethod = dmethod;
     }
 
-    public String getCreditstatus() {
-        return creditstatus;
+    public String getDdate() {
+        return ddate;
     }
 
-    public void setCreditstatus(String creditstatus) {
-        this.creditstatus = creditstatus;
+    public void setDdate(String ddate) {
+        this.ddate = ddate;
     }
 
+    public String getStatus() {
+        return status;
+    }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getOrderstatus() {
+        return orderstatus;
+    }
+
+    public void setOrderstatus(String orderstatus) {
+        this.orderstatus = orderstatus;
+    }
+
+    public String getCustomerreturns() {
+        return customerreturns;
+    }
+
+    public void setCustomerreturns(String customerreturns) {
+        this.customerreturns = customerreturns;
+    }
 }
