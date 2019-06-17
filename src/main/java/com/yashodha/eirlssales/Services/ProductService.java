@@ -13,7 +13,7 @@ public class ProductService {
 
     private final String MaterialProductsUrl = "https://eirls-material.herokuapp.com/showItems";
 
-    public List<Product> getItems() {
+    public List<Product> getProducts() {
 
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<Product[]> materialIResponse= restTemplate.getForEntity(MaterialProductsUrl, Product[].class);
