@@ -12,9 +12,10 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     @JsonAlias("item_id")
-    private int id;
+    private int materialId;
 
     @JsonAlias("item_name")
     private String name;
@@ -27,7 +28,6 @@ public class Product {
 
     @JsonAlias("item_price")
     private double price;
-
 
 
     public int getId() {
@@ -68,6 +68,14 @@ public class Product {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public int getMaterialId() {
+        return materialId;
+    }
+
+    public void setMaterialId(int materialId) {
+        this.materialId = materialId;
     }
 }
 
