@@ -63,16 +63,16 @@ public class Enquiry {
         this.orderstatus = orderstatus;
     }
 
+    public Set<EnquiryProduct> getEnquiryProducts() {
+        return enquiryProducts;
+    }
+
     public Customer getCustomer() {
         return customer;
     }
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
-    }
-
-    public Set<EnquiryProduct> getEnquiryProducts() {
-        return enquiryProducts;
     }
 
     public void setEnquiryProducts(Set<EnquiryProduct> enquiryProducts) {
