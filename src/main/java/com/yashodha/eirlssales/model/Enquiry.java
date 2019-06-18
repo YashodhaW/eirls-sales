@@ -9,13 +9,11 @@ import java.util.Set;
 public class Enquiry {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int orderid;
     private int id;
     private String dmethod;
     private String ddate;
     private String status;
     private String orderstatus;
-
 
     @OneToMany(mappedBy = "enquiry", cascade = CascadeType.ALL)
     @JsonIgnoreProperties("enquiry")
@@ -24,14 +22,6 @@ public class Enquiry {
     @ManyToOne
     @JoinColumn
     private Customer customer;
-
-    public int getOrderid() {
-        return orderid;
-    }
-
-    public void setOrderid(int orderid) {
-        this.orderid = orderid;
-    }
 
     public int getId() {
         return id;
@@ -89,4 +79,5 @@ public class Enquiry {
         this.enquiryProducts = enquiryProducts;
         this.enquiryProducts.forEach(enquiryProduct -> enquiryProduct.setEnquiry(this));
     }
+
 }
